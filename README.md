@@ -5,14 +5,29 @@ To start your Phoenix server:
   * Run `mix setup` to install and setup dependencies
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+# dependecies
+      {:absinthe, "~> 1.7"},
+        ` used for creating graphql `
+      {:waffle, "~> 1.1"},
+            ` easy to use, and offers a flexible customization on files to you can upload`
+      {:oban, "~> 2.17"},
+      {:waffle_ecto, "~> 0.0.12"}
 
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
+## Thought process
+    # design
+    1. start with database 
+    2. schema creation
+    3. waffle schema (` this contains the valid files `)
+    4. graphql
+        schema
+        queries
+        resolvers
 
-## Learn more
+# user process
+    The user should be able to consume graphql 
+    The user should be able to upload the files using the api
+    The api should give relevant feedback
+    
+## the api only allows the following exetentions of files
+    (.png .jpg .jpeg .pdf .txt)      
 
-  * Official website: https://www.phoenixframework.org/
-  * Guides: https://hexdocs.pm/phoenix/overview.html
-  * Docs: https://hexdocs.pm/phoenix
-  * Forum: https://elixirforum.com/c/phoenix-forum
-  * Source: https://github.com/phoenixframework/phoenix

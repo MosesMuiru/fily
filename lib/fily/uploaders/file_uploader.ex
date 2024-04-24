@@ -3,21 +3,14 @@ defmodule Fily.Uploaders.FileUploader do
   use Waffle.Definition
   use Waffle.Ecto.Definition
 
-  @allowed_ext ~w(.png .jpg .jpeg .pdf )
+  @allowed_ext ~w(.png .jpg .jpeg .pdf .txt)
 
-  def filename(version, {file, post}) do
-
-
-    "#{file.file_name}_#{post.title}_#{version}"
-  end
-
-  def validate(_version, {file, _scope}) do
+  def validate({file, _scope}) do
     file_extension =
-       file.file_filename
+      file.file_name
       |> Path.extname()
       |> String.downcase()
 
-    Enum.member?(@allowed_ext, file_extension)
+    Enum.member?(@allowed_ext, file_extension) 
   end
-
 end

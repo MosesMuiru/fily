@@ -7,17 +7,15 @@ defmodule Fily.UploadsSchema do
 
   schema "uploads" do
 
-    field :filename, :string
+    field :file_name, :string
     field :the_file, Fily.Uploaders.FileUploader.Type 
 
-    timestamps()
-    
   end
 
   def changeset(post, params) do
     post
-    |> cast(params, [:filename])
-    |> cast_attachments(params, [:the_file])
+    |> cast(params, [:file_name])
+    |> cast_attachments(params, [:the_file], allow_paths: true)
   end
   
 end
