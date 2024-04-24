@@ -2,6 +2,7 @@ defmodule Fily.GraphQl.Schema do
   use Absinthe.Schema
 
   alias Fily.GraphQl.Resolvers
+  alias Fily.ObanWorker
 
 
   object :file do
@@ -13,6 +14,7 @@ defmodule Fily.GraphQl.Schema do
     field :id, :integer
     field :file_name, :string
     field :the_file, :file
+    field :message, :string
   end
 
   scalar :datetime do
@@ -36,13 +38,14 @@ defmodule Fily.GraphQl.Schema do
     end
   end
 
+
   mutation do
   
     @desc "filename - name of the file, the_file - the file path"
     field :upload_file, :uploads do
       arg :file_name, :string
       arg :the_file, :string
-      resolve fn args,_ -> Fily.Impl.upload_file(args) end
+      resolve(fn _, args,_ -> Resolvers.upload_file(args)  end)
     end
   end
 end

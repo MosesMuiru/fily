@@ -14,7 +14,7 @@ defmodule Fily.Impl do
   def upload_file(file_details) do
     %UploadsSchema{}
     |> UploadsSchema.changeset(file_details)
-    |> Repo.insert()
+    |> Oban.insert()
     
   end
 
