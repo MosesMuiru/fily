@@ -21,10 +21,17 @@ config :fily, FilyWeb.Endpoint,
   ],
   pubsub_server: Fily.PubSub,
   live_view: [signing_salt: "hME2W7rI"]
+  
 # configure waffle
 config :waffle,
   storage:  Waffle.Storage.Local,
   storage_dir: "priv/uploads"
+
+#oban configs
+config :fily, Oban,
+  engine: Oban.Engines.Basic,
+  queues: [default: 10],
+  repo: Fily.Repo
 
 # By default it uses the "Local" adapter which stores the emails
 # locally. You can see the emails in your browser, at "/dev/mailbox".

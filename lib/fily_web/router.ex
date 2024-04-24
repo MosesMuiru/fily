@@ -40,5 +40,13 @@ defmodule FilyWeb.Router do
       live_dashboard "/dashboard", metrics: FilyWeb.Telemetry
       forward "/mailbox", Plug.Swoosh.MailboxPreview
     end
+
+    scope "/api" do
+      pipe_through :api
+
+      forward "/", Absinthe.Plug, schema: Fily.GraphQl.Schema
+
+      forward "/graphiql", Absinthe.Plug.GraphQl, schema: Fily.GraphQl.Schema
+    end
   end
 end

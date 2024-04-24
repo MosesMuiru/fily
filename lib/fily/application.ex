@@ -17,7 +17,8 @@ defmodule Fily.Application do
       # Start a worker by calling: Fily.Worker.start_link(arg)
       # {Fily.Worker, arg},
       # Start to serve requests, typically the last entry
-      FilyWeb.Endpoint
+      FilyWeb.Endpoint,
+      {Oban, Application.fetch_env!(:fily, Oban)}
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
