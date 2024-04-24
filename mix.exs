@@ -60,7 +60,8 @@ defmodule Fily.MixProject do
       {:bandit, "~> 1.2"},
       {:absinthe, "~> 1.7"},
       {:waffle, "~> 1.1"},
-      {:oban, "~> 2.17"}
+      {:oban, "~> 2.17"},
+      {:waffle_ecto, "~> 0.0.12"}
     ]
   end
 
