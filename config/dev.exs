@@ -3,7 +3,7 @@ import Config
 # Configure your database
 config :fily, Fily.Repo,
   username: "postgres",
-  password: "postgres",
+  password: "welcome2",
   hostname: "localhost",
   database: "fily_dev",
   stacktrace: true,
