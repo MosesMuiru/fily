@@ -54,17 +54,13 @@ get all uploads
 uploading  a file
 
 ```
-    query {
-	getAllUploads{
-		id
-		fileName
-		theFile{
-			fileName
-			updatedAt
-		}
+    mutation{
+	uploadFile(fileName: "name", theFile: "names.txt"){
+
+		message
+		
 	}
 }
-
 ```
 
 ### link to the uploads
