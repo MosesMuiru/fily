@@ -31,3 +31,41 @@ To start your Phoenix server:
 ## the api only allows the following exetentions of files
     (.png .jpg .jpeg .pdf .txt)      
 
+## endpoints
+
+    ### /api
+    ### /api/graphiql
+
+### sample queries
+get all uploads
+```
+    query {
+	getAllUploads{
+		id
+		fileName
+		theFile{
+			fileName
+			updatedAt
+		}
+	}
+}
+```
+
+uploading  a file
+
+```
+    query {
+	getAllUploads{
+		id
+		fileName
+		theFile{
+			fileName
+			updatedAt
+		}
+	}
+}
+
+```
+
+### link to the uploads
+    /priv/uploads

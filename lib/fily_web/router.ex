@@ -44,9 +44,12 @@ defmodule FilyWeb.Router do
     scope "/api" do
       pipe_through :api
 
+ if Mix.env() == :dev do
+      forward "/graphiql", Absinthe.Plug.GraphiQL,
+        schema: Fily.GraphQl.Schema,
+        interface: :playground
+    end
       forward "/", Absinthe.Plug, schema: Fily.GraphQl.Schema
-
-      forward "/graphiql", Absinthe.Plug.GraphQl, schema: Fily.GraphQl.Schema
     end
   end
 end
